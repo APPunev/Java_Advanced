@@ -18,40 +18,39 @@ public class MathPotato {
         for (String name : names) {
             queue.offer(name);
         }
-        //10 Toss
-        //George Peter Misha Sara Kendal = 10/5 = 2 cycles
-        //George Peter Misha Sara = 10/4 = 2.5 cycles (3)
-        //George Peter Misha = 10/3 = 3.3 (4)
-        //George Peter = 10/2 = 5
+
         int cycle = 1;
         while(queue.size() > 1){
             for (int i = 1; i < toss; i++) {
-                queue.offer(queue.poll());
+                String current = queue.poll();
+                queue.offer(current);
             }
 
-            if (isPrime(cycle)) {
+            if (!isNotPrime(cycle)) {
                 System.out.println("Prime " + queue.peek());
-            }else{
+            } else {
                 System.out.println("Removed " + queue.poll());
             }
+
             cycle++;
 
         }
         System.out.println("Last is " + queue.poll());
     }
 
-    private static boolean isPrime(int n) {
-        boolean primeCheck = true;
-        if (n == 0 || n == 1) {
-            primeCheck = false;
-            return primeCheck;
+    public static boolean isNotPrime(int n){
+        boolean isNotPrime = false;
+        if (n == 1 || n == 0) {
+            isNotPrime = true;
+            return isNotPrime;
         }else{
-            for (int i = 2; i < Math.sqrt(n); i++) {
+            for (int i = 2; i <= Math.sqrt(n); i++) {
                 if (n % i == 0) {
-                    primeCheck = false;
+                    isNotPrime = true;
+                    return isNotPrime;
                 }
             }
-            return primeCheck;
         }
+        return isNotPrime;
     }
 }
