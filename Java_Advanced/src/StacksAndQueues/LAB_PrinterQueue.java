@@ -3,7 +3,7 @@ package StacksAndQueues;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
-public class PrinterQueue {
+public class LAB_PrinterQueue {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

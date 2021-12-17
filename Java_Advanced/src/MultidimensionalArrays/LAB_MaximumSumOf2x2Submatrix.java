@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MaximumSumOf2x2Submatrix {
+public class LAB_MaximumSumOf2x2Submatrix {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] rowsAndCols = readArray(scanner.nextLine(), ", ");

@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.*;
 
-public class BrowsingHistoryUpdate {
+public class LAB_BrowsingHistoryUpdate {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 

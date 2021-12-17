@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class WrongMeasurements {
+public class LAB_WrongMeasurements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

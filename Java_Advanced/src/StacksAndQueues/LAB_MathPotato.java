@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Scanner;
 
 
-public class MathPotato {
+public class LAB_MathPotato {
     public static void main(String[] args) {
 
 

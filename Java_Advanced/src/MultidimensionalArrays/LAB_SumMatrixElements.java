@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SumMatrixElements {
+public class LAB_SumMatrixElements {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

@@ -3,7 +3,7 @@ package StacksAndQueues;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
-public class HotPotato {
+public class LAB_HotPotato {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

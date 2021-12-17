@@ -2,7 +2,7 @@ package MultidimensionalArrays;
 
 import java.util.Scanner;
 
-public class FindTheRealQueen {
+public class LAB_FindTheRealQueen {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
