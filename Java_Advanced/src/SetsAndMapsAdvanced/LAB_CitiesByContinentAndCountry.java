@@ -1,9 +1,6 @@
 package SetsAndMapsAdvanced;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class LAB_CitiesByContinentAndCountry {
     public static void main(String[] args) {
@@ -11,67 +8,41 @@ public class LAB_CitiesByContinentAndCountry {
 
         int n = Integer.parseInt(scanner.nextLine());
 
-        LinkedHashMap<String, Info> compassMap = new LinkedHashMap<String, Info>();
+        LinkedHashMap<String, LinkedHashMap<String, List<String>>> destinationMap = new LinkedHashMap<>();
 
         for (int i = 0; i < n; i++) {
             String input = scanner.nextLine();
             String continent = input.split("\\s+")[0];
-            String countryName = input.split("\\s+")[1];
-            String cityName = input.split("\\s+")[2];
+            String country = input.split("\\s+")[1];
+            String city = input.split("\\s+")[2];
 
-
-            Info info = new Info(new ArrayList<>(),new ArrayList<>());
-
-            if (compassMap.containsKey(continent)) {
-                if (info.getCountry().equals(countryName)) {
-                    compassMap.get(continent).addCity(cityName);
-                }else{
-                    compassMap.get(continent).addCountry(countryName);
-                    compassMap.get(continent).addCity(cityName);
-                }
+            if (!destinationMap.containsKey(continent)) {
+                destinationMap.put(continent, new LinkedHashMap<>());
+                destinationMap.get(continent).put(country,new ArrayList<>());
+                destinationMap.get(continent).get(country).add(city);
             }else{
-                if (info.getCountry().equals(countryName)) {
-                    compassMap.get(continent).getCountry().add(cityName);;
-                }else{
-                    compassMap.put(continent,info);
-                    compassMap.get(continent).addCountry(countryName);
-                    compassMap.get(continent).addCity(cityName);
+                boolean countryExist = false;
+                for (Map.Entry<String, List<String>> el : destinationMap.get(continent).entrySet()) {
+                    if (el.getKey().equals(country)) {
+                        destinationMap.get(continent).get(country).add(city);
+                        countryExist = true;
+                    }
+                }
+                if (!countryExist) {
+                    destinationMap.get(continent).put(country, new ArrayList<>());
+                    destinationMap.get(continent).get(country).add(city);
                 }
             }
         }
-
-//        compassMap.entrySet()
-//                .forEach(el->{
-//                    System.out.println(el.getKey() + ":");
-//                    List<Info> newList = el.getValue();
-//                    newList.forEach(e-> System.out.printf(""));
-//                });
-    }
-
-
-    public static class Info{
-        private List<String> country;
-        private List<String> city;
-
-        public Info(List<String> country, List<String> city) {
-            this.country = country;
-            this.city = city;
-        }
-
-        public void addCity(String cityName){
-            city.add(cityName);
-        }
-
-        public void addCountry(String countryName){
-            country.add(countryName);
-        }
-
-        public List<String> getCountry() {
-            return country;
-        }
-
-        public List<String> getCity() {
-            return city;
-        }
+            destinationMap.entrySet().forEach(el -> {
+                System.out.println(el.getKey() + ":");
+                LinkedHashMap<String, List<String>> currentMap = el.getValue();
+                currentMap.entrySet().forEach(e->{
+                    System.out.print(" " + e.getKey() + " -> ");
+                    List<String> currentList = e.getValue();
+                    System.out.print(String.join(", ", currentList));
+                    System.out.println();
+                });
+            });
     }
 }
