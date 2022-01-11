@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PoisonousPlants {
+public class EXR_PoisonousPlants {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
