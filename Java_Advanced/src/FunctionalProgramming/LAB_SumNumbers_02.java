@@ -9,7 +9,9 @@ import java.util.stream.Stream;
 public class LAB_SumNumbers_02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         String[] input = scanner.nextLine().split(", ");
+
         Function<String[], Stream<Integer>> map = arr -> Arrays.stream(arr)
                 .map(Integer::parseInt);
 
